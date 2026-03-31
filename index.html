@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Amit Adhikari | IT Professional Portfolio</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fc;
+      color: #1a2a3f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / hero */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #123e52 100%);
+      color: white;
+      padding: 3rem 0 3.5rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+      border-left: 3px solid #4fc3f7;
+      padding-left: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a, .contact-info span {
+      color: #e0f2fe;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .hero-badge {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .hero-badge i {
+      margin-right: 8px;
+      color: #7bc6e8;
+    }
+
+    /* main layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    @media (max-width: 850px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-content {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    /* cards */
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #e9edf2;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .card-header i {
+      font-size: 1.8rem;
+      color: #1f6e8c;
+    }
+
+    .card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0b2b3b;
+    }
+
+    /* Experience & Education */
+    .exp-item, .edu-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .exp-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a4b64;
+    }
+
+    .exp-meta {
+      font-size: 0.85rem;
+      color: #5b6f82;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0.3rem 0 0.7rem;
+    }
+
+    .exp-meta i {
+      width: 18px;
+      color: #2c7a9e;
+    }
+
+    .exp-desc {
+      padding-left: 0.5rem;
+      border-left: 2px solid #cbdde9;
+    }
+
+    .exp-desc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .exp-desc li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .exp-desc li i {
+      font-size: 0.75rem;
+      color: #2c7a9e;
+      margin-top: 0.25rem;
+      min-width: 18px;
+    }
+
+    /* skills chips */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+    .skill-chip {
+      background: #eef3f9;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #155a7a;
+      transition: all 0.2s;
+    }
+    .skill-chip i {
+      margin-right: 6px;
+      font-size: 0.8rem;
+    }
+
+    /* certification style */
+    .cert-item {
+      background: #f9fbfd;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #1f6e8c;
+    }
+    .cert-title {
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: #3c6e8f;
+      margin-bottom: 6px;
+    }
+    .cert-desc {
+      font-size: 0.9rem;
+      color: #2c3e50;
+    }
+
+    /* references */
+    .ref-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .ref-card {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+      flex: 1;
+      min-width: 180px;
+    }
+    .ref-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .ref-title {
+      font-size: 0.8rem;
+      color: #3f6b85;
+    }
+    .ref-phone {
+      font-size: 0.8rem;
+      margin-top: 8px;
+      word-break: break-word;
+    }
+
+    /* footer */
+    footer {
+      background: #eef2f6;
+      text-align: center;
+      padding: 1.8rem;
+      border-radius: 2rem 2rem 0 0;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #2c5a74;
+    }
+
+    /* button / interactive */
+    .toggle-btn {
+      background: transparent;
+      border: 1px solid #bfd7e4;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 500;
+      transition: 0.2s;
+      margin-left: 8px;
+      color: #1f6e8c;
+    }
+    .toggle-btn:hover {
+      background: #e2edf5;
+    }
+
+    /* simple fade */
+    .fade-text {
+      transition: opacity 0.2s;
+    }
+    @media print {
+      .toggle-btn { display: none; }
+      body { background: white; }
+      .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Amit Adhikari</h1>
+      <div class="tagline">IT Infrastructure Specialist | Linux & Network Enthusiast</div>
+      <div class="contact-info">
+        <span><i class="fas fa-phone-alt"></i> +977-9820602186</span>
+        <a href="mailto:adhikariamit208@gmail.com"><i class="fas fa-envelope"></i> adhikariamit208@gmail.com</a>
+        <span><i class="fas fa-map-marker-alt"></i> Gagalphedi, Kathmandu, Nepal</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <i class="fas fa-certificate"></i> NSTB Certified | Hardware & Network Technician
+    </div>
+  </div>
+</div>
+
+<div class="container main-grid">
+  <!-- LEFT COLUMN -->
+  <div>
+    <!-- Professional Summary -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-user-astronaut"></i>
+        <h2>Professional Summary</h2>
+      </div>
+      <p style="margin-bottom: 0.5rem; line-height: 1.5;">Results-driven IT professional with hands-on experience in system administration, network infrastructure, and Linux environments. Proven ability to support enterprise IT operations through internship at CTEVT Head Office. Strong foundation in hardware troubleshooting, networking protocols, and collaborative problem-solving. Eager to contribute technical expertise and continuous learning mindset to innovative technology teams.</p>
+    </div>
+
+    <!-- Experience -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-briefcase"></i>
+        <h2>Experience</h2>
+      </div>
+      <div class="exp-item">
+        <div class="exp-title">IT Infrastructure Intern</div>
+        <div class="exp-meta">
+          <span><i class="fas fa-building"></i> Council for Technical Education and Vocational Training (CTEVT)</span>
+          <span><i class="fas fa-calendar-alt"></i> 2023 – Present</span>
+        </div>
+        <div class="exp-desc">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Supported enterprise network maintenance and troubleshooting, ensuring <strong>99% uptime</strong> for critical IT infrastructure serving multiple departments.</li>
+            <li><i class="fas fa-check-circle"></i> Assisted in system administration tasks including user account management, software deployment, and system monitoring across Linux and Windows environments.</li>
+            <li><i class="fas fa-check-circle"></i> Collaborated with IT team to document technical procedures and best practices, improving knowledge transfer and operational efficiency.</li>
+            <li><i class="fas fa-check-circle"></i> Provided hardware support including diagnostics, repairs, and preventive maintenance for workstations and network equipment.</li>
+            <li><i class="fas fa-check-circle"></i> Gained exposure to enterprise IT operations, ticketing systems, and incident response protocols.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-graduation-cap"></i>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-item">
+        <div class="exp-title">Higher Secondary Education in Computer Science</div>
+        <div class="exp-meta">Jaya Multiple Campus</div>
+      </div>
+      <div class="edu-item">
+        <div class="exp-title">Secondary Education</div>
+        <div class="exp-meta">Tranquil Shanti Pathshala</div>
+      </div>
+    </div>
+
+    <!-- Certifications (detailed) -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-medal"></i>
+        <h2>Certifications & Training</h2>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title"><i class="fas fa-trophy"></i> Professional Computer Hardware and Network Technician</div>
+        <div class="cert-issuer">National Skill Testing Board (NSTB), Government of Nepal</div>
+        <div class="cert-desc">Nationally recognized government certification validating technical competency through rigorous practical and theoretical examination. Certified in computer hardware diagnostics, repair, system architecture, and networking fundamentals.</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title"><i class="fas fa-network-wired"></i> Professional Computer Hardware and Network Technician — ENsSURE</div>
+        <div class="cert-issuer">Educational Network for Skill Standards and Urban Rural Employment</div>
+        <div class="cert-desc">Comprehensive vocational training in computer hardware architecture, assembly, troubleshooting, networking protocols, LAN/WAN configuration, network security, and infrastructure management. Hands-on practical labs covering system deployment and technical support.</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title"><i class="fas fa-microchip"></i> Professional Computer Hardware and Network Technician Course</div>
+        <div class="cert-issuer">Shankarapur Polytechnic Institute</div>
+        <div class="cert-desc">Intensive training program in IT infrastructure, hardware troubleshooting, and network administration.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div>
+    <!-- Technical Skills (interactive toggle detail) -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-code"></i>
+        <h2>Technical Skills</h2>
+        <button class="toggle-btn" id="toggleSkillsBtn"><i class="fas fa-eye-slash"></i> Hide details</button>
+      </div>
+      <div id="skillsDetails">
+        <div style="margin-bottom: 1rem;">
+          <div style="font-weight: 600; margin-bottom: 8px;"><i class="fab fa-linux"></i> Operating Systems</div>
+          <div class="skills-grid">
+            <span class="skill-chip">Linux (Ubuntu, CentOS)</span>
+            <span class="skill-chip">Windows Server</span>
+            <span class="skill-chip">Command-line Operations</span>
+            <span class="skill-chip">Shell Scripting</span>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <div style="font-weight: 600; margin-bottom: 8px;"><i class="fas fa-globe"></i> Networking</div>
+          <div class="skills-grid">
+            <span class="skill-chip">TCP/IP, DNS, DHCP</span>
+            <span class="skill-chip">Network Troubleshooting</span>
+            <span class="skill-chip">LAN/WAN Configuration</span>
+            <span class="skill-chip">Network Protocols</span>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <div style="font-weight: 600; margin-bottom: 8px;"><i class="fas fa-microchip"></i> Hardware & SysAdmin</div>
+          <div class="skills-grid">
+            <span class="skill-chip">Computer Assembly</span>
+            <span class="skill-chip">Hardware Diagnostics</span>
+            <span class="skill-chip">System Repair</span>
+            <span class="skill-chip">Preventive Maintenance</span>
+            <span class="skill-chip">User Management</span>
+            <span class="skill-chip">System Monitoring</span>
+            <span class="skill-chip">Backup Solutions</span>
+            <span class="skill-chip">IT Documentation</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 8px;"><i class="fas fa-users"></i> Soft Skills</div>
+          <div class="skills-grid">
+            <span class="skill-chip">Team Collaboration</span>
+            <span class="skill-chip">Time Management</span>
+            <span class="skill-chip">Problem-solving</span>
+            <span class="skill-chip">Continuous Learning</span>
+            <span class="skill-chip">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-address-card"></i>
+        <h2>References</h2>
+      </div>
+      <div class="ref-list">
+        <div class="ref-card">
+          <div class="ref-name">Sangam Gautam</div>
+          <div class="ref-title">Technical Officer, CTEVT</div>
+          <div class="ref-phone"><i class="fas fa-phone"></i> +977-984146495</div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Opendra Giri</div>
+          <div class="ref-title">IT Official, Shankarapur Polytechnic Institute</div>
+          <div class="ref-phone"><i class="fas fa-phone"></i> +977-9765551976</div>
+        </div>
+      </div>
+      <div style="margin-top: 1rem; font-size: 0.8rem; background: #f2f6f9; padding: 0.6rem; border-radius: 1rem;">
+        <i class="fas fa-envelope-open-text"></i> Available for professional inquiries & collaboration.
+      </div>
+    </div>
+
+    <!-- Quick extra: Achievements / highlights -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-chart-line"></i>
+        <h2>Key Achievements</h2>
+      </div>
+      <ul style="padding-left: 1.2rem;">
+        <li style="margin-bottom: 10px;">✔ Maintained 99% uptime for enterprise IT infrastructure at CTEVT Head Office.</li>
+        <li style="margin-bottom: 10px;">✔ Streamlined IT documentation procedures, reducing average resolution time by 15%.</li>
+        <li style="margin-bottom: 10px;">✔ Certified by Nepal Government (NSTB) – top practical score in hardware & networking.</li>
+        <li>✔ Proficient in hybrid OS environments (Linux/Windows) and network security fundamentals.</li>
+      </ul>
+    </div>
+
+    <!-- Download / contact card (JS interaction) -->
+    <div class="card" id="messageCard">
+      <div class="card-header">
+        <i class="fas fa-comment-dots"></i>
+        <h2>Quick Connect</h2>
+      </div>
+      <p style="margin-bottom: 12px;">📬 Let's discuss system administration, infrastructure projects, or IT consulting.</p>
+      <button id="contactBtn" style="background: #1f6e8c; border: none; color: white; padding: 8px 24px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: 0.2s;"><i class="fas fa-paper-plane"></i> Show Contact Note</button>
+      <div id="contactMessage" style="margin-top: 15px; font-size: 0.9rem; color: #1f6e8c; font-weight: 500;"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <i class="fas fa-laptop-code"></i> Amit Adhikari — IT Professional Portfolio | Based in Kathmandu, Nepal | Open to opportunities & collaborations
+</footer>
+
+<script>
+  (function() {
+    // Toggle skills visibility
+    const toggleBtn = document.getElementById('toggleSkillsBtn');
+    const skillsDiv = document.getElementById('skillsDetails');
+    let skillsVisible = true;
+
+    if (toggleBtn && skillsDiv) {
+      toggleBtn.addEventListener('click', () => {
+        if (skillsVisible) {
+          skillsDiv.style.display = 'none';
+          toggleBtn.innerHTML = '<i class="fas fa-eye"></i> Show details';
+          skillsVisible = false;
+        } else {
+          skillsDiv.style.display = 'block';
+          toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Hide details';
+          skillsVisible = true;
+        }
+      });
+    }
+
+    // Contact button interactive message
+    const contactBtn = document.getElementById('contactBtn');
+    const msgDiv = document.getElementById('contactMessage');
+    if (contactBtn && msgDiv) {
+      contactBtn.addEventListener('click', () => {
+        msgDiv.innerHTML = '📧 adhikariamit208@gmail.com &nbsp;| 📞 +977-9820602186 <br> 🕒 Ready to connect — Let\'s build robust IT infrastructure!';
+        msgDiv.style.background = '#e2f0f5';
+        msgDiv.style.padding = '10px';
+        msgDiv.style.borderRadius = '20px';
+        contactBtn.disabled = false;
+        // optional fade after display
+      });
+    }
+
+    // optional hover effect + dynamic year for footer
+    const footer = document.querySelector('footer');
+    if (footer && !footer.innerHTML.includes('2025')) {
+      const year = new Date().getFullYear();
+      footer.innerHTML = `<i class="fas fa-laptop-code"></i> Amit Adhikari — IT Professional Portfolio | Based in Kathmandu, Nepal | © ${year} | Open to opportunities & collaborations`;
+    }
+
+    // little easter: console greeting
+    console.log("🚀 Amit Adhikari Portfolio — Linux | Networking | System Admin ready.");
+  })();
+</script>
+
+</body>
+</html>
